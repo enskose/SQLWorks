@@ -11,3 +11,5 @@ select order_id, sum(unit_price * quantity) Ciro from order_details group by ord
 and sum(unit_price * quantity) < 10000 ORDER BY Ciro desc
 
 -- between ile çözümü
+select order_id, sum(unit_price * quantity) Ciro from order_details group by order_id having sum(unit_price * quantity) > 5000 
+and sum(unit_price * quantity) < 10000 ORDER BY Ciro desc
