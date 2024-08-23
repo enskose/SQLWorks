@@ -19,3 +19,4 @@ select * from suppliers where country != 'USA'
 
 -- Kendi databese'imizi oluşturma
 -- Normalization 
+
