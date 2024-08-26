@@ -6,6 +6,7 @@ join order_details od ON o.order_id = od.order_id
 group by c.country
 order by ToplamCiro desc
 
+
 -- Ülkelerin yaptığı ciroları yıllara göre dağıtalım
 select c.country, EXTRACT(year from o.order_date) as SiparisYili, SUM(od.quantity * od.unit_price) as ToplamCiro
 from customers c
@@ -32,6 +33,7 @@ join orders o on s.shipper_id = o.ship_via
 join order_details od on o.order_id = od.order_id
 group by s.shipper_id, s.company_name
 order by ToplamDeger desc
+
 
 -- Kategorilere göre ciro nedir?
 select c.category_id,c.category_name, SUM(od.quantity * od.unit_price) as ToplamCiro
