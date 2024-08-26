@@ -27,7 +27,7 @@ order by ToplamCiro desc
 
 
 -- Kargo firmalarının taşıdığı siparişlerin toplam değeri nedir?
-select s.shipper_id,s.company_name, SUM(od.quantity * od.unit_price) as ToplamDeger
+select s.shipper_id,s.company_name, ROUND(SUM(od.quantity * od.unit_price)) as ToplamDeger
 from shippers s
 join orders o on s.shipper_id = o.ship_via
 join order_details od on o.order_id = od.order_id
@@ -45,9 +45,9 @@ order by ToplamCiro desc
 
 
 -- 1997 yılındaki ciroların aylara göre dağılımları nedir?
-select EXTRACT(month from o.order_date) as order_month, SUM(od.quantity * od.unit_price) as total_revenue
+select EXTRACT(month from o.order_date) as siparis_ayi, SUM(od.quantity * od.unit_price) as toplam_ciro
 from orders o
 join order_details od on o.order_id = od.order_id
 where EXTRACT(year from o.order_date) = 1997
-group by order_month
-order by order_month
+group by siparis_ayi
+order by siparis_ayi
