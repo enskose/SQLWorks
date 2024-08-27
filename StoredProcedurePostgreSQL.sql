@@ -22,3 +22,17 @@ select * from orders where order_id = 831
 -- DELETE: kayıt silme
 DELETE FROM shippers where shipper_id = 7
 select * from shippers
+
+CREATE OR REPLACE PROCEDURE KargoEkle (shipper_id int, firmadi varchar, telefon varchar)
+language plpgsql 
+as $$
+DECLARE
+-- variable declaration
+BEGIN
+-- stored procedure body
+insert into shippers (shipper_id, company_name, phone) values (shipper_id, firmadi, telefon)
+end; 
+$$;
+
+call KargoEkle(7, 'MNG Kargo', '444 44 44')
+select * from shippers
