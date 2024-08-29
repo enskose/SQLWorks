@@ -1,6 +1,6 @@
--- Self join Kendi icerisinde Primary Key ve Forign Key barindiran yapilardir.
+-- Self join kendi içerisinde Primary Key ve Forign Key barındıran yapılardır.
 
--- Asagida Calisanlarin kime rapor verdigi ilgili sorgu vardir.
+-- Aşağıda çalışanların kime rapor verdiği ile ilgili sorgu vardır.
 select e2.EmployeeID ,e2.FirstName+ ' ' +e2.LastName,'=>' + e1.FirstName + ' ' + e1.LastName , e1.EmployeeID
 from Employees e1
 inner join Employees e2 on e1.EmployeeID=e2.ReportsTo
