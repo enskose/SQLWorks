@@ -1,9 +1,9 @@
 -- Self join kendi içerisinde Primary Key ve Forign Key barındıran yapılardır.
 
 -- Aşağıda çalışanların kime rapor verdiği ile ilgili sorgu vardır. (SQL Server)
-select e2.EmployeeID ,e2.FirstName+ ' ' +e2.LastName,'=>' + e1.FirstName + ' ' + e1.LastName , e1.EmployeeID
+select e2.EmployeeID, e2.FirstName + ' ' + e2.LastName, '=>' + e1.FirstName + ' ' + e1.LastName, e1.EmployeeID
 from Employees e1
-inner join Employees e2 on e1.EmployeeID=e2.ReportsTo
+inner join Employees e2 on e1.EmployeeID = e2.ReportsTo
 
 -- postgresql 
 select e2.Employee_ID, e2.First_Name || ' ' || e2.Last_Name, ' => ' || e1.First_Name || ' ' || e1.Last_Name, e1.Employee_ID
